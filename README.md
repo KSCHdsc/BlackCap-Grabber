@@ -1,5 +1,6 @@
-# BlackCap Grabber v1.9
-
+<h1 align="center">
+  🔰 BlackCap Grabber v1.9
+</h1>
 ![](https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/Banner.png)
 
 
@@ -8,12 +9,6 @@
 
 
 
-
-
-
-<h1 align="center">
-  🔰 BlackCap Grabber 
-</h1>
 <h1 align="center">
   🔰 DISCORD.GG/BLACKCAP
 </h1>
