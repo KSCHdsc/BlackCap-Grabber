@@ -4,7 +4,7 @@
 
 
 
-##### [:gem: Premium](https://discord.gg/blackcap) - [💡 Features](https://github.com/BlackCap-Grabber/Arizona#features) 
+##### [:gem: Premium](https://discord.gg/blackcap)
 
 
 
