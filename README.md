@@ -161,6 +161,10 @@ v1.9 ⋮ 2022-26-10
 - Irax212
 - Shamroks
 
+### Forks
+- PirateStealer
+- Hazard Grabber
+
 # Terms
 - [x] Educational purpose only
 - [x] Reselling is forbidden
