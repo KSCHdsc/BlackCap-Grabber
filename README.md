@@ -2,11 +2,18 @@
 
 ![](https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/Banner.png)
 
+
+
 ##### [:gem: Premium](https://discord.gg/blackcap) - [💡 Features](https://github.com/BlackCap-Grabber/Arizona#features) 
+
+
+
+
 
 
 <h1 align="center">
   BlackCap Grabber 🔰
+  DISCORD.GG/BLACKCAP
 </h1>
 
 
