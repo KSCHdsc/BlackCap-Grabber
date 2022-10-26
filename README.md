@@ -12,10 +12,11 @@
 
 
 <h1 align="center">
-  BlackCap Grabber 🔰
-  DISCORD.GG/BLACKCAP
+  🔰 BlackCap Grabber 
 </h1>
-
+<h1 align="center">
+  🔰 DISCORD.GG/BLACKCAP
+</h1>
 
 <h2 align="center">
   BlackCap Grabber was made with
