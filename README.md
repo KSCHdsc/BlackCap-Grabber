@@ -170,6 +170,7 @@ v1.9 ⋮ 2022-26-10
 ### Forked
 - Hazard Grabber
 - PirateStealer
+- Wasp-stealer
 
 
 # Terms
