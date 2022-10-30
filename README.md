@@ -8,7 +8,6 @@
 
 
 
-
 <h1 align="center">
   BlackCap Grabber 🔰
   DISCORD.GG/BLACKCAP
