@@ -1,4 +1,4 @@
-# BlackCap Grabber v1.9
+# BlackCap Grabber v2.1
 
 ![](https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/Banner.png)
 
