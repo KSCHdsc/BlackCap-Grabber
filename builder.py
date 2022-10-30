@@ -91,18 +91,6 @@ class Builder:
             self.icon = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Do you want to add an icon to the .exe (yes/no): ')
             if self.icon == 'yes':
                 self.icon_exe()
-            if self.icon == 'y':
-                self.icon_exe()
-            else:
-                pass
-        else:
-            pass
-        if self.compy == 'y':
-            self.icon = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Do you want to add an icon to the .exe (y/n): ')
-            if self.icon == 'yes':
-                self.icon_exe()
-            if self.icon == 'y':
-                self.icon_exe()
             else:
                 pass
         else:
