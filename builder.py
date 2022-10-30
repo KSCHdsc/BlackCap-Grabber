@@ -26,7 +26,7 @@ class Builder:
             str(input(f"{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Press anything to exit..."))
             sys.exit()
 
-        self.filename = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Enter your filename: ')
+        self.filename = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Enter your custom output .exe name: ')
 
         self.killprocess = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Kill victim Discord Client? (yes/no): ')
         if self.killprocess.lower() == 'y':
@@ -518,6 +518,7 @@ class Builder:
         os.system('pip install --upgrade -r requirements.txt')
 
         os.system('cls')
+
         os.system('mode con:cols=150 lines=20')
 
         return True
