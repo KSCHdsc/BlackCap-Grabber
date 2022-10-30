@@ -28,9 +28,9 @@ BlackCap was made for educational purposes, therefor all consequences caused by 
 
 ## <a id="content"></a>🌐 〢 Content
 
-- [🔰・Features](#features)
 - [🌌・Discord](https://discord.gg/blackcap)
 - [🎉・Setting up BlackCap](#setup)
+- [🔰・Features](#features)
 - [📝・Changelog](#changelog)
 
 
