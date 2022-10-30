@@ -518,7 +518,6 @@ class Builder:
         os.system('pip install --upgrade -r requirements.txt')
 
         os.system('cls')
-
         os.system('mode con:cols=150 lines=20')
 
         return True
