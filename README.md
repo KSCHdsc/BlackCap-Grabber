@@ -107,6 +107,11 @@ v2.1: 2022-30-10
 + New builder
 + Ping on run
 + Task Manager killer
+
+v2.1.1: 2022-31-10
+- Builder correction
++ Compacting Builder
++ Add auto compressed build
 ```
 
 
