@@ -22,7 +22,7 @@ Love ❌ code ✅
 </h2>
 
 **NOTE:** \
-BlackCap was made for educational purposes, therefor all consequences caused by your actions are **your** responsibility and accountability.
+BlackCap was made for educational purposes, there for all consequences caused by your actions are **your** responsibility and accountability.
 
 ---
 
