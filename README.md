@@ -10,7 +10,9 @@
 
 <h1 align="center">
   BlackCap Grabber 🔰
-  DISCORD.GG/BLACKCAP
+</h1>
+<h1 align="center">
+ DISCORD.GG/BLACKCAP
 </h1>
 
 
