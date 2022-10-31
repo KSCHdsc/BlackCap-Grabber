@@ -121,6 +121,7 @@ v2.1: 2022-30-10
 - Hazard Grabber
 - PirateStealer
 - Wasp-stealer
+- Builder by Luna token grabber 
 
 
 # Terms
