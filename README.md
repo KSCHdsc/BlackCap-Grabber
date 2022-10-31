@@ -32,6 +32,8 @@ BlackCap was made for educational purposes, therefor all consequences caused by 
 - [🎉・Setting up BlackCap](#setup)
 - [🔰・Features](#features)
 - [📝・Changelog](#changelog)
+- [🕵️‍♂️・Credits](#Forked)
+- [💼・Term](#Term)
 
 
 ## <a id="setup"></a> 📁 〢 Setting up BlackCap
@@ -105,7 +107,6 @@ v2.1: 2022-30-10
 + Task Manager killer
 ```
 
-<a href=#top>Back to Top</a></p>
 
 ### Authors
 - [KSCHdsc](https://github.com/KSCHdsc)
@@ -117,17 +118,20 @@ v2.1: 2022-30-10
 - Irax212
 - Shamroks
 
-### Forked
+### <a id="Forked"></a>🕵️‍♂️ 〢 Forked From:
 - Hazard Grabber
 - PirateStealer
 - Wasp-stealer
 - Builder by Luna token grabber 
 
 
-# Terms
+### <a id="Term"></a>💼 〢 Term of usage
+
 - [x] Educational purpose only
 - [x] Reselling is forbidden
 - [x] You can use the source code if you keep credits (in embed + in markdown), it has to be open-source
 - [x] We are NOT responsible of anything you do with our software (if its illegal)
 
+
+<a href=#top>Back to Top</a></p>
 ![](https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/mona-loading-dark.gif)
