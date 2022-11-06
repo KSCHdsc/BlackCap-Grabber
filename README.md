@@ -24,7 +24,8 @@ Love ❌ code ✅
 </h2>
 
 **NOTE:** \
-BlackCap was made for educational purposes, there for all consequences caused by your actions are **your** responsibility and accountability.
+- BlackCap was made for educational purposes, there for all consequences caused by your actions are **your** responsibility and accountability.
+- You got an error? you've find a bug?? join the discord or create an issue!
 
 ---
 
@@ -112,6 +113,11 @@ v2.1.1: 2022-31-10
 - Builder correction
 + Compacting Builder
 + Add auto compressed build
+
+v2.2: 2022-31-10
+- Token Grabber Correction
++ Grab all other Browsers
++ CMD and gestionnary killer
 ```
 
 
