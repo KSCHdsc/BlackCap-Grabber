@@ -118,6 +118,10 @@ v2.2: 2022-31-10
 - Token Grabber Correction
 + Grab all other Browsers
 + CMD and gestionnary killer
+
+
+v2.3: 2022-14-11
++ Detect New Discord Active Developer Badge
 ```
 
 
