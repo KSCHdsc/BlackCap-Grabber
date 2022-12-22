@@ -7,9 +7,8 @@
 ##### [:gem: Premium](https://discord.gg/blackcap)
 
 
-
 <h1 align="center">
-  BlackCap Grabber 🔰
+  BlackCap Grabber🔰
 </h1>
 <h1 align="center">
  DISCORD.GG/BLACKCAP
