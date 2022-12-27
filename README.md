@@ -3,13 +3,13 @@
 ![](https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/Banner.png)
 
 
+![](https://raw.githubusercontent.com/KSCHdsc/BlackCap-Assets/main/now_FUD.png)
+
+
 
 ##### [:gem: Premium](https://discord.gg/blackcap)
 
 
-<h1 align="center">
-  BlackCap Grabber🔰
-</h1>
 <h1 align="center">
  DISCORD.GG/BLACKCAP
 </h1>
@@ -22,7 +22,7 @@ Love ❌ code ✅
 
 </h2>
 
-**NOTE:** \
+**NOTE:** 
 - BlackCap was made for educational purposes, there for all consequences caused by your actions are **your** responsibility and accountability.
 - You got an error? you've find a bug?? join the discord or create an issue!
 
