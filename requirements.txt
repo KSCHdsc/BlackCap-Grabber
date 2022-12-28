@@ -1,6 +1,7 @@
 httpx
 pyotp
 asyncio
+winreg
 psutil
 pypiwin32
 pycryptodome
@@ -11,8 +12,8 @@ threaded
 requests
 datetime
 pywin32
-alive-progress
 colorama
 pyinstaller
 pillow
 pycryptodome
+alive-progress
