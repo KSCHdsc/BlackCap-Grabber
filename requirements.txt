@@ -1,7 +1,6 @@
 httpx
 pyotp
 asyncio
-winreg
 psutil
 pypiwin32
 pycryptodome
