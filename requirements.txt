@@ -16,3 +16,4 @@ pyinstaller
 pillow
 pycryptodome
 alive-progress
+winregistry
