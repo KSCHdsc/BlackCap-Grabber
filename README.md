@@ -127,6 +127,7 @@ v2.3: 2022-14-11
 ### Authors
 - [KSCHdsc](https://github.com/KSCHdsc)
 - [002Sans](https://github.com/002-sans)
+- [loTus01](https://github.com/loTus04)
 
 ### Contributors (CapingTeam)
 - Xenis
