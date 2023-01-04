@@ -1,4 +1,4 @@
 @echo off
-title BlackCap Builder v2.1
+title BlackCap Builder v2.2
 python builder.py
 pause
