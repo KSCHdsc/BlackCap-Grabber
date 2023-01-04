@@ -548,6 +548,7 @@ class Builder:
                     .replace("'%kill_discord_process%'", str(self.killprocess))
                     .replace("'%_debugkiller%'", str(self.dbugkiller)))
 
+            
         time.sleep(2)
         print(f'{Fore.GREEN}[{Fore.RESET}{Fore.WHITE}+{Fore.RESET}{Fore.GREEN}]{Fore.RESET}{Fore.WHITE} Source code has been generated...{Fore.RESET}')
 
