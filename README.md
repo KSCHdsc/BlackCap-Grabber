@@ -97,10 +97,11 @@ Love ❌ code ✅
 ![](https://media.discordapp.net/attachments/912038729626058853/1062467388320272504/image.png)
 ```d
 @blackcap: Here put your Discord Webhook you can find it in your "DISCORD CHANNEL OPTIONS" > "INTEGRATION" > "CREATE A WEBHOOK"
-
-//level ez
 ```
-
+![](https://media.discordapp.net/attachments/912038729626058853/1062467782446420049/image.png)
+```d
+@blackcap: Here put your final file name like "blackcap_is_best" or "KSCH_the_Goat" 🤓
+```
 
 
 
