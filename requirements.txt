@@ -10,10 +10,10 @@ asyncio
 threaded
 requests
 datetime
-pywin32
 colorama
 pyinstaller
 pillow
 pycryptodome
 alive-progress
 winregistry
+pywin32
