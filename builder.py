@@ -73,7 +73,7 @@ class Builder:
         else:
             self.hider = False
 
-        self.obfuscation = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Do you want to obfuscate the BlackCap (recommand yes)? (yes/no): ')
+        self.obfuscation = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Do you want to obfuscate the BlackCap (recommand no if yes script will be detected)? (yes/no): ')
 
         self.compy = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Do you want to compile the file to a .exe? (yes/no): ')
 
@@ -548,7 +548,6 @@ class Builder:
                     .replace("'%kill_discord_process%'", str(self.killprocess))
                     .replace("'%_debugkiller%'", str(self.dbugkiller)))
 
-            
         time.sleep(2)
         print(f'{Fore.GREEN}[{Fore.RESET}{Fore.WHITE}+{Fore.RESET}{Fore.GREEN}]{Fore.RESET}{Fore.WHITE} Source code has been generated...{Fore.RESET}')
 
