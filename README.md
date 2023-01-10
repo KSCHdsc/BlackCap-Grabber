@@ -35,6 +35,7 @@ Love ❌ code ✅
 - [🔰・Features](#features)
 - [👁️・Features Explanation](#explanation)
 - [📝・Changelog](#changelog)
+- [🦜・Injection](https://github.com/KSCHdsc/BlackCap-Inject)
 - [🕵️‍♂️・Credits](#forkedfrom)
 - [💼・Term](#terms)
 
