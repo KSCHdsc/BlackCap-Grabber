@@ -33,6 +33,7 @@ Love ❌ code ✅
 - [🌌・Discord](https://discord.gg/blackcap)
 - [🎉・Setting up BlackCap](#setup)
 - [🔰・Features](#features)
+- [👁️・Features Explanation](#explanation)
 - [📝・Changelog](#changelog)
 - [🕵️‍♂️・Credits](#Forked)
 - [💼・Term](#Term)
@@ -89,6 +90,18 @@ Love ❌ code ✅
 - Anti Delete system (re install after Discord uninstall / Discord Update)
 > + More!
 ```
+
+## <a id="explanation"></a>👁️ 〢 Explanations of Features and options
+
+
+![](https://media.discordapp.net/attachments/940334524485738496/1062463867030085703/image.png)
+```d
+@blackcap: Here put your Discord Webhook you can find it in your "DISCORD CHANNEL OPTIONS" > "INTEGRATION" > "CREATE A WEBHOOK"
+
+//level ez
+```
+
+
 
 
 ## <a id="changelog"></a>💭 〢 ChangeLog
