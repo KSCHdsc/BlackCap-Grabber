@@ -35,8 +35,8 @@ Love ❌ code ✅
 - [🔰・Features](#features)
 - [👁️・Features Explanation](#explanation)
 - [📝・Changelog](#changelog)
-- [🕵️‍♂️・Credits](#Forked)
-- [💼・Term](#Term)
+- [🕵️‍♂️・Credits](#forkedfrom)
+- [💼・Term](#terms)
 
 
 ## <a id="setup"></a> 📁 〢 Setting up BlackCap
@@ -156,14 +156,14 @@ v2.3: 2023-10-01
 - Irax212
 - Shamroks
 
-### <a id="Forked"></a>🕵️‍♂️ 〢 Forked From:
+### <a id="forkedfrom"></a>🕵️‍♂️ 〢 Forked From:
 - Hazard Grabber
 - PirateStealer
 - Wasp-stealer
 - Builder by Luna token grabber 
 
 
-### <a id="Term"></a>💼 〢 Term of usage
+### <a id="terms"></a>💼 〢 Terms Of Usage
 
 - [x] Educational purpose only
 - [x] Reselling is forbidden
