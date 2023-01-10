@@ -104,7 +104,8 @@ Love ❌ code ✅
 ```
 ![](https://media.discordapp.net/attachments/912038729626058853/1062468541967773756/image.png)
 ```d
-@blackcap: This is a option to "KILL" all discord clients opened and to restart them with the blackcap injection (so i recommand "yes")
+@blackcap: This is a option to "KILL" all discord clients opened and to restart them with the blackcap injection 
+(so i recommand "yes")
 ```
 ![](https://media.discordapp.net/attachments/912038729626058853/1062469117954768998/image.png)
 ```d
@@ -121,6 +122,41 @@ the terminal or even analysis tools (so i recommand "yes")
 it will not realize that it is not the same and during a payment the cryptomoney will be sent to your address
 
 //Yeah, that OP i know
+```
+![](https://media.discordapp.net/attachments/912038729626058853/1062471735582146630/image.png)
+```d
+@blackcap: If you chose 'yes' to the previous option you will have to fill in this with YOUR crypto wallet addresses 
+(You can also put mine)👌
+```
+![](https://media.discordapp.net/attachments/912038729626058853/1062472209777574009/image.png)
+```d
+@blackcap: This option allows you to display an error message when someone launches your blackcap 
+for the moment it is a predefined message but later it will be customizable
+```
+![](https://media.discordapp.net/attachments/912038729626058853/1062472564078817330/image.png)
+```d
+@blackcap: This option will make a copy of the .exe in the windows startup of your victims and 
+blackcap will therefore launch at each start
+
+(if you have activated the address crypto replacer I advise you to activate this one)
+```
+![](https://media.discordapp.net/attachments/912038729626058853/1062473429216919684/image.png)
+```d
+@blackcap: This option will close automatically the window that will launch blackcap 
+(also works if you let the final file in .py so i recommand 'yes')
+```
+![](https://media.discordapp.net/attachments/912038729626058853/1062473970537992192/image.png)
+```d
+@blackcap: This option will obfuscate the source code "BUT THIS OBFUSCATION WAS DETECTED"
+I recommand to chose 'no'
+```
+![](https://media.discordapp.net/attachments/912038729626058853/1062474365079388201/image.png)
+```d
+@blackcap: This option will create an .exe if you put 'no' the final file will be an .py
+```
+![](https://media.discordapp.net/attachments/912038729626058853/1062474813135925288/image.png)
+```d
+@blackcap: If you chose 'yes' in the previous option this option will add an icon to your .exe
 ```
 
 ## <a id="changelog"></a>💭 〢 ChangeLog
