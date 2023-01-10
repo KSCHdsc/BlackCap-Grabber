@@ -67,12 +67,12 @@ Love ❌ code ✅
 - Bypass Virus Total machines
 - Bypass VM machines
 - Hide Itself in Background
-- Replace the BTC address copying by your (💎)
-- Custom Installer / Setuper (💎)
-- Icon / Name / Description Customizable (💎)
+- Replace the BTC address copying by your
+- Custom Installer / Setuper
+- Icon / Name / Description Customizable
 - Cookies Exploiter Tech (💎)
-- Steal all Chromium Passwords and Cookies for OperaGX/Opera/GoogleChrome/Brave/Chromium/Torch/Edge/Mozilla and others (💎)
-- 0/64 Detect Virus Total (.exe) (💎)
+- Steal all Chromium Passwords and Cookies for OperaGX/Opera/GoogleChrome/Brave/Chromium/Torch/Edge/Mozilla and others
+- 0/64 Detect Virus Total Builder (.exe) (💎)
 - Grabb Sensitive Files exodus login / a2f backup codes / tokens / passwords... (can be customizable) (💎)
 
 
@@ -120,8 +120,15 @@ v2.2: 2022-31-10
 + CMD and gestionnary killer
 
 
-v2.3: 2022-14-11
+v2.2.5: 2022-14-11
 + Detect New Discord Active Developer Badge
+
+
+v2.3: 2023-10-01
+- 0 detection source code by virustotal
+- Builder error patched
++ New code optimisation
++ New features can replace all crypto wallet by your address (the victim will not realize it and you will intercept each of his transactions)
 ```
 
 
