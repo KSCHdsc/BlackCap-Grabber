@@ -196,7 +196,7 @@ v2.3: 2023-10-01
 - 0 detection source code by virustotal
 - Builder error patched
 + New code optimisation
-+ New features can replace all crypto wallet by your address (the victim will not realize it and you will intercept each of his transactions)
++ New features can replace all crypto wallet by your address
 ```
 
 
