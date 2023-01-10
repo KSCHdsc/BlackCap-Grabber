@@ -94,7 +94,7 @@ Love ❌ code ✅
 ## <a id="explanation"></a>👁️ 〢 Explanations of Features and options
 
 
-![](https://media.discordapp.net/attachments/940334524485738496/1062463867030085703/image.png)
+![](https://media.discordapp.net/attachments/912038729626058853/1062467388320272504/image.png)
 ```d
 @blackcap: Here put your Discord Webhook you can find it in your "DISCORD CHANNEL OPTIONS" > "INTEGRATION" > "CREATE A WEBHOOK"
 
