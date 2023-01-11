@@ -202,9 +202,10 @@ v2.3: 2023-10-01
 
 
 ### Authors
-- [KSCHdsc](https://github.com/KSCHdsc)
-- [002Sans](https://github.com/002-sans)
-- [loTus01](https://github.com/loTus04)
+- [@KSCH](https://github.com/KSCHdsc)
+- [@HisSlot](https://github.com/HisSlot)
+- [@Sans](https://github.com/002-sans)
+- [@loTus](https://github.com/loTus04)
 
 ### Contributors (CapingTeam)
 - Xenis
